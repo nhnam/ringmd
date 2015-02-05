@@ -46,7 +46,8 @@
  */
 - (void)registerWithUsername:(NSString *)username
                     password:(NSString *)password
-                    fullname:(NSString *)fullname
+                 phonenumber:(NSString *)phonenumber
+                 phoneArea:(NSString *)phoneArea
                        email:(NSString *)email
                    completed:(void (^)( id object, NSString *message))completedBlock
                       failed:(void (^)(NSString *error))failBlock;

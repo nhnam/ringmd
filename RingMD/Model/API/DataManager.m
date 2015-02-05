@@ -43,7 +43,8 @@ static DataManager* gInstance = nil;
 }
 
 #pragma mark - Login
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password
+- (void)loginWithUsername:(NSString *)username
+                 password:(NSString *)password
                 completed:(void (^)( id object, NSString *message)) completedBlock
                    failed:(void (^)(NSString *error))failBlock
 {
@@ -84,21 +85,24 @@ static DataManager* gInstance = nil;
 #pragma mark - Register 
 - (void)registerWithUsername:(NSString *)username
                    password:(NSString *)password
-                    fullname:(NSString *)fullname
+                 phonenumber:(NSString *)phonenumber
+                 phoneArea:(NSString *)phoneArea
                       email:(NSString *)email
                   completed:(void (^)( id object, NSString *message))completedBlock
                      failed:(void (^)(NSString *error))failBlock {
     @try {
-        NSDictionary *dicParamaters = @{@"email_id" : email,
-                                        @"username" : username,
+        NSDictionary *dicParamaters = @{@"email" : email,
+                                        @"full_name" : username,
                                         @"password" : password,
-                                        @"full_name" : fullname,
-                                        @"device_id" : deviceUdid(),
-                                        @"device_type" : @"i"
+                                        @"phone_code" : phoneArea,
+                                        @"phone_raw_number" : phonenumber,
+                                        @"role" : @"patient",
+                                        @"agree_on_terms" :[NSNumber numberWithBool:YES]
                                         };
-        DLog(@"\nParamaters : %@", dicParamaters);
+        NSDictionary *userParam = @{@"user":dicParamaters};
+        DLog(@"\nParamaters : %@", userParam);
         [self processRequestWithType:API_TYPE_REGISTRATION
-                          postParmas:dicParamaters
+                          postParmas:userParam
                            getParams:nil
                            completed:completedBlock
                               failed:failBlock];

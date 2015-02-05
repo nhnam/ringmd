@@ -12,8 +12,8 @@
 
 static NSString * api_url[API_TYPE_NUM] = {
 	@"api/v4/tokens.json",
-    @"api/user/logout",
-    @"api/user/register",
+    @"api/v4/users.json",
+    @"api/v4/users.json",
     @"api/user/forgotpassword",
     @"api/user/loginviasocial",
     @"api/user/checkusername",

@@ -130,7 +130,7 @@
     signUpBtn.frame                    = CGRectMake(0, 240, 310, 50);
     signUpBtn.backgroundColor          = [UIColor colorWithRed:242.0/255.0 green:137.0/255.0 blue:87.0/255.0 alpha:255.0/255.0];
     signUpBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    signUpBtn.titleLabel.text          = @"Sign in";
+    signUpBtn.titleLabel.text          = @"Sign up";
     signUpBtn.titleLabel.textColor     = [UIColor whiteColor];
     UIImageView *signInIco = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"go_icon"]];
     [signInIco sizeToFit];
@@ -161,7 +161,7 @@
     emailIconView.center = CGPointMake(emailTxF.center.x - emailTxF.frame.size.width/2 - emailTxF.frame.size.height/2 , emailTxF.center.y);
     [mainScrollView addSubview:emailIconView];
     
-    UIImageView *phoneIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"username_icon"]];
+    UIImageView *phoneIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"phone_icon"]];
     [phoneIconView sizeToFit];
     phoneIconView.center = CGPointMake(phoneTxF.center.x - phoneTxF.frame.size.width/2 - phoneTxF.frame.size.height/2 , phoneTxF.center.y);
     [mainScrollView addSubview:phoneIconView];
@@ -231,28 +231,26 @@
     
     showIndicator();
     
-    // do login
-    [[DataManager shareInstance] loginWithUsername: email
-                                          password: password
-                                         completed:^(id object, NSString *message) {
-                                             hideIndicator();
-                                             if (object)
-                                             {
-                                                 [Utilities showAlert:@"Sign up successful"];
-                                                 passTxF.text = @"";
-                                                 AccountObject *account = (AccountObject *)object;
-                                                 [Utilities saveDataArchiver: [account toDictionary] forKey: kAccount];
-                                                 [self dismissViewControllerAnimated:YES completion:nil];
-                                             }
-                                             else
-                                             {
-                                                 [Utilities showAlert: Alert_DataError];
-                                             }
-                                             
-                                         } failed:^(NSString *error) {
-                                             hideIndicator();
-                                             [Utilities showAlert: error];
-                                         }];
+    // do sign up
+    [[DataManager shareInstance] registerWithUsername:username password:password phonenumber:phone phoneArea:@"+84" email:email completed:^(id object, NSString *message)
+    {
+        hideIndicator();
+        if (object)
+        {
+            [Utilities showAlert:@"Sign up successful"];
+            passTxF.text = @"";
+            AccountObject *account = (AccountObject *)object;
+            [Utilities saveDataArchiver: [account toDictionary] forKey: kAccount];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            [Utilities showAlert: Alert_DataError];
+        }
+    } failed:^(NSString *error) {
+        hideIndicator();
+        [Utilities showAlert: error];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
