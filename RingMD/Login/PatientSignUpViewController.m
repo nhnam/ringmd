@@ -73,7 +73,7 @@
     [self.view addSubview:mainScrollView];
     
     nameTxF = [[UITextField alloc] initWithFrame:CGRectMake(40, 20, 240, 48)];
-    UIView *nameBg = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 310, 48)];
+    UIView *nameBg = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, 48)];
     nameBg.backgroundColor    = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
     nameBg.layer.cornerRadius = 3.0f;
 //    nameBg.layer.borderWidth  = 1.0f;
@@ -86,7 +86,7 @@
     [mainScrollView addSubview:nameBg];
     
     passTxF = [[UITextField alloc] initWithFrame:CGRectMake(40, 70, 240, 48)];
-    UIView *passBg = [[UIView alloc] initWithFrame:CGRectMake(0, 70, 310, 48)];
+    UIView *passBg = [[UIView alloc] initWithFrame:CGRectMake(0, 70, 320, 48)];
     passBg.backgroundColor    = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
     passBg.layer.cornerRadius = 3.0f;
 //    passBg.layer.borderWidth  = 1.0f;
@@ -101,7 +101,7 @@
     passTxF.secureTextEntry    = YES;
     
     emailTxF = [[UITextField alloc] initWithFrame:CGRectMake(40, 120, 240, 48)];
-    UIView *emailBg = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 310, 48)];
+    UIView *emailBg = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 320, 48)];
     emailBg.backgroundColor    = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
     emailBg.layer.cornerRadius = 3.0f;
 //    emailBg.layer.borderWidth  = 1.0f;
@@ -114,7 +114,7 @@
     [mainScrollView addSubview:emailBg];
 //
     phoneTxF = [[UITextField alloc] initWithFrame:CGRectMake(40, 170, 240, 48)];
-    UIView *phoneBg = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 310, 48)];
+    UIView *phoneBg = [[UIView alloc] initWithFrame:CGRectMake(0, 170, 320, 48)];
     phoneBg.backgroundColor    = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
     phoneBg.layer.cornerRadius = 3.0f;
 //    phoneBg.layer.borderWidth  = 1.0f;
@@ -127,7 +127,7 @@
     [mainScrollView addSubview:phoneBg];
     
     signUpBtn                          = [UIButton buttonWithType:UIButtonTypeCustom];
-    signUpBtn.frame                    = CGRectMake(0, 240, 310, 50);
+    signUpBtn.frame                    = CGRectMake(0, 240, 320, 50);
     signUpBtn.backgroundColor          = [UIColor colorWithRed:242.0/255.0 green:137.0/255.0 blue:87.0/255.0 alpha:255.0/255.0];
     signUpBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     signUpBtn.titleLabel.text          = @"Sign up";
