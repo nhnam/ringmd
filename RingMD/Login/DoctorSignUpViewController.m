@@ -17,6 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"Doctor Registration";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // enable title bar
+    self.navigationController.navigationBar.hidden = NO;
+    
+    // set color to white
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    // set title text white color
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
+    
+    // disable back text string
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (void)didReceiveMemoryWarning {

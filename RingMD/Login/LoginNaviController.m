@@ -8,6 +8,8 @@
 
 #import "LoginNaviController.h"
 
+#define bar_color [UIColor colorWithRed:78.0/255 green:188.0/255 blue:228.0/255 alpha:255.0/255]
+
 @implementation LoginNaviController
 
 @synthesize transitioning = _transitioning;
@@ -18,11 +20,24 @@
     [super viewDidLoad];
     self.delegate = self;
     self.stack = [[NSMutableArray alloc] init];
-    
     self.navigationBar.backIndicatorImage = [[UIImage alloc] init];
     self.navigationBar.shadowImage = [[UIImage alloc] init];
+    CGRect bkRect = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 80);
+    [self.navigationBar setBackgroundImage:[self imageWithColor:bar_color rect:bkRect] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.hidden = YES;
-    
+    self.navigationBar.backgroundColor = bar_color;
+    self.navigationBar.clipsToBounds = NO;
+}
+
+-(UIImage *)imageWithColor:(UIColor *)color rect:(CGRect)frame
+{
+    UIGraphicsBeginImageContext(frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, frame);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 

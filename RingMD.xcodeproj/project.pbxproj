@@ -31,6 +31,16 @@
 		D8A1BF711A81DC6A00C3C86E /* ring_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A1BF6F1A81DC6A00C3C86E /* ring_bg@3x.png */; };
 		D8A1BF721A81DC6A00C3C86E /* ring_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A1BF701A81DC6A00C3C86E /* ring_logo@3x.png */; };
 		D8D563471A81F6170006BB64 /* signin_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D563461A81F6170006BB64 /* signin_icon@3x.png */; };
+		D8D5634D1A8303950006BB64 /* LaunchScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D5634C1A8303950006BB64 /* LaunchScreenView.m */; };
+		D8D563521A831F790006BB64 /* emain_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D5634E1A831F790006BB64 /* emain_icon@3x.png */; };
+		D8D563531A831F790006BB64 /* password_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D5634F1A831F790006BB64 /* password_icon@3x.png */; };
+		D8D563541A831F790006BB64 /* phone_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D563501A831F790006BB64 /* phone_icon@3x.png */; };
+		D8D563551A831F790006BB64 /* username_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D563511A831F790006BB64 /* username_icon@3x.png */; };
+		D8D563571A8325530006BB64 /* go_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D563561A8325530006BB64 /* go_icon@3x.png */; };
+		D8D5635A1A8327680006BB64 /* ring-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8D563581A8327680006BB64 /* ring-bold.ttf */; };
+		D8D5635B1A8327680006BB64 /* ring.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8D563591A8327680006BB64 /* ring.ttf */; };
+		D8D5635E1A8328CE0006BB64 /* ring-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8D5635C1A8328CE0006BB64 /* ring-bold.ttf */; };
+		D8D5635F1A8328CE0006BB64 /* ring.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8D5635D1A8328CE0006BB64 /* ring.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +99,17 @@
 		D8A1BF6F1A81DC6A00C3C86E /* ring_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ring_bg@3x.png"; sourceTree = "<group>"; };
 		D8A1BF701A81DC6A00C3C86E /* ring_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ring_logo@3x.png"; sourceTree = "<group>"; };
 		D8D563461A81F6170006BB64 /* signin_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin_icon@3x.png"; sourceTree = "<group>"; };
+		D8D5634B1A8303950006BB64 /* LaunchScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenView.h; sourceTree = "<group>"; };
+		D8D5634C1A8303950006BB64 /* LaunchScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenView.m; sourceTree = "<group>"; };
+		D8D5634E1A831F790006BB64 /* emain_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emain_icon@3x.png"; sourceTree = "<group>"; };
+		D8D5634F1A831F790006BB64 /* password_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "password_icon@3x.png"; sourceTree = "<group>"; };
+		D8D563501A831F790006BB64 /* phone_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone_icon@3x.png"; sourceTree = "<group>"; };
+		D8D563511A831F790006BB64 /* username_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "username_icon@3x.png"; sourceTree = "<group>"; };
+		D8D563561A8325530006BB64 /* go_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go_icon@3x.png"; sourceTree = "<group>"; };
+		D8D563581A8327680006BB64 /* ring-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ring-bold.ttf"; sourceTree = "<group>"; };
+		D8D563591A8327680006BB64 /* ring.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ring.ttf; sourceTree = "<group>"; };
+		D8D5635C1A8328CE0006BB64 /* ring-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ring-bold.ttf"; sourceTree = "<group>"; };
+		D8D5635D1A8328CE0006BB64 /* ring.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ring.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +171,8 @@
 		D8A1BF011A81C51D00C3C86E /* RingMD */ = {
 			isa = PBXGroup;
 			children = (
+				D8D5635C1A8328CE0006BB64 /* ring-bold.ttf */,
+				D8D5635D1A8328CE0006BB64 /* ring.ttf */,
 				D8A1BF6E1A81DC6A00C3C86E /* Assets */,
 				D8A1BF491A81D43800C3C86E /* Model */,
 				D8A1BF2B1A81C93900C3C86E /* Login */,
@@ -159,6 +182,8 @@
 				D8A1BF0F1A81C51D00C3C86E /* Main.storyboard */,
 				D8A1BF121A81C51D00C3C86E /* Images.xcassets */,
 				D8A1BF141A81C51D00C3C86E /* LaunchScreen.xib */,
+				D8D5634B1A8303950006BB64 /* LaunchScreenView.h */,
+				D8D5634C1A8303950006BB64 /* LaunchScreenView.m */,
 				D8A1BF091A81C51D00C3C86E /* RingMD.xcdatamodeld */,
 				D8A1BF021A81C51D00C3C86E /* Supporting Files */,
 				D8A1BF381A81CA2900C3C86E /* Define.h */,
@@ -267,6 +292,13 @@
 		D8A1BF6E1A81DC6A00C3C86E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D8D563581A8327680006BB64 /* ring-bold.ttf */,
+				D8D563591A8327680006BB64 /* ring.ttf */,
+				D8D563561A8325530006BB64 /* go_icon@3x.png */,
+				D8D5634E1A831F790006BB64 /* emain_icon@3x.png */,
+				D8D5634F1A831F790006BB64 /* password_icon@3x.png */,
+				D8D563501A831F790006BB64 /* phone_icon@3x.png */,
+				D8D563511A831F790006BB64 /* username_icon@3x.png */,
 				D8D563461A81F6170006BB64 /* signin_icon@3x.png */,
 				D8A1BF6F1A81DC6A00C3C86E /* ring_bg@3x.png */,
 				D8A1BF701A81DC6A00C3C86E /* ring_logo@3x.png */,
@@ -358,9 +390,18 @@
 			files = (
 				D8A1BF711A81DC6A00C3C86E /* ring_bg@3x.png in Resources */,
 				D8A1BF111A81C51D00C3C86E /* Main.storyboard in Resources */,
+				D8D563571A8325530006BB64 /* go_icon@3x.png in Resources */,
+				D8D5635E1A8328CE0006BB64 /* ring-bold.ttf in Resources */,
 				D8A1BF161A81C51D00C3C86E /* LaunchScreen.xib in Resources */,
+				D8D5635F1A8328CE0006BB64 /* ring.ttf in Resources */,
 				D8A1BF721A81DC6A00C3C86E /* ring_logo@3x.png in Resources */,
+				D8D563551A831F790006BB64 /* username_icon@3x.png in Resources */,
+				D8D563521A831F790006BB64 /* emain_icon@3x.png in Resources */,
+				D8D5635A1A8327680006BB64 /* ring-bold.ttf in Resources */,
+				D8D563531A831F790006BB64 /* password_icon@3x.png in Resources */,
+				D8D563541A831F790006BB64 /* phone_icon@3x.png in Resources */,
 				D8D563471A81F6170006BB64 /* signin_icon@3x.png in Resources */,
+				D8D5635B1A8327680006BB64 /* ring.ttf in Resources */,
 				D8A1BF131A81C51D00C3C86E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +462,7 @@
 				D8A1BF311A81C96600C3C86E /* LoginViewController.m in Sources */,
 				D8A1BF341A81C97F00C3C86E /* PatientSignUpViewController.m in Sources */,
 				D8A1BF421A81D1EC00C3C86E /* Utilities.m in Sources */,
+				D8D5634D1A8303950006BB64 /* LaunchScreenView.m in Sources */,
 				D8A1BF3F1A81CEC700C3C86E /* MainViewController.m in Sources */,
 				D8A1BF2E1A81C94600C3C86E /* StartViewController.m in Sources */,
 				D8A1BF0B1A81C51D00C3C86E /* RingMD.xcdatamodeld in Sources */,

@@ -20,6 +20,8 @@
 @interface StartViewController ()
 {
     UIImageView *logoView;
+    UIImageView *bgView;
+    
     UIView *signInContainerView;
     UIView *signUpContainerView;
     
@@ -38,6 +40,7 @@
     UITapGestureRecognizer *tabGesture;
     
     BOOL state;
+    BOOL firstLoad;
 }
 @end
 
@@ -51,9 +54,11 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     UIImage *bg          = [UIImage imageNamed:@"ring_bg"];
-    UIImageView *bgView  = [[UIImageView alloc] initWithFrame:CGRectMake(0, screenBounds.size.height/2, screenBounds.size.width, screenBounds.size.height/2)];
+    bgView  = [[UIImageView alloc] initWithFrame:CGRectMake(0, screenBounds.size.height/2, screenBounds.size.width, screenBounds.size.height/2)];
+    bgView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+
     bgView.image         = bg;
-    bgView.contentMode   = UIViewContentModeScaleAspectFill;
+    bgView.contentMode   = UIViewContentModeScaleAspectFit;
     bgView.clipsToBounds = NO;
     [self.view addSubview:bgView];
     
@@ -92,45 +97,59 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    firstLoad = NO;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    [bgView sizeToFit];
+    bgView.frame = CGRectMake(0, screenBounds.size.height - bgView.frame.size.height, screenBounds.size.width, screenBounds.size.height/2);
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    if(!firstLoad){
     // show login container
-    CGRect endRect = logoView.frame;
-    CGRect beginRect = endRect;
-    beginRect.origin.y += 44;
-    logoView.frame = beginRect;
-    [UIView animateWithDuration:0.8
-                          delay:0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0
-                        options:0
-                     animations:^{
-        logoView.alpha = 1.0;
-        logoView.frame = endRect;
-    } completion:^(BOOL finished)
-    {
-        CGRect endRect = signInContainerView.frame;
+        CGRect endRect = logoView.frame;
         CGRect beginRect = endRect;
-        beginRect.origin.y += 40;
-        signInContainerView.frame = beginRect;
+        beginRect.origin.y += 44;
+        logoView.frame = beginRect;
         [UIView animateWithDuration:0.8
                               delay:0
              usingSpringWithDamping:0.6
               initialSpringVelocity:0
                             options:0
                          animations:^{
-                             signInContainerView.alpha = 1.0;
-                             signInContainerView.frame = endRect;
-                             [emailTxF resignFirstResponder];
-                         } completion:^(BOOL finished)
-         {
-             
-         }];
-    }];
-
+            logoView.alpha = 1.0;
+            logoView.frame = endRect;
+        } completion:^(BOOL finished)
+        {
+            CGRect endRect = signInContainerView.frame;
+            CGRect beginRect = endRect;
+            beginRect.origin.y += 40;
+            signInContainerView.frame = beginRect;
+            [UIView animateWithDuration:0.8
+                                  delay:0
+                 usingSpringWithDamping:0.6
+                  initialSpringVelocity:0
+                                options:0
+                             animations:^{
+                                 signInContainerView.alpha = 1.0;
+                                 signInContainerView.frame = endRect;
+                                 [emailTxF resignFirstResponder];
+                             } completion:^(BOOL finished)
+             {
+                 
+             }];
+        }];
+        firstLoad = YES;
+    }
 }
 
 -(void)setupSignInLayout{
@@ -179,7 +198,7 @@
     gotoSignUpBtn.titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     gotoSignUpBtn.titleLabel.layer.shadowRadius = 1.0f;
     gotoSignUpBtn.titleLabel.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-    gotoSignUpBtn.center = CGPointMake(signInBtn.center.x, signInBtn.center.y + 150);
+    gotoSignUpBtn.center = CGPointMake(signInBtn.center.x, 390);
     [gotoSignUpBtn addTarget:self action:@selector(didTouchGoToSighUp:) forControlEvents:UIControlEventTouchUpInside];
     
     [signInContainerView addSubview:emailTxF];
@@ -280,6 +299,7 @@
     patientBtn.layer.cornerRadius = 3.0f;
     patientBtn.layer.borderWidth  = 1.0f;
     patientBtn.layer.borderColor  = [UIColor colorWithRed:242.0/255.0 green:137.0/255.0 blue:87.0/255.0 alpha:255.0/255.0].CGColor;
+    [patientBtn addTarget:self action:@selector(didTouchGoToPatientSignUp:) forControlEvents:UIControlEventTouchUpInside];
 
     doctorBtn                           = [UIButton buttonWithType:UIButtonTypeCustom];
     doctorBtn.frame                     = CGRectMake(20, 65, 280, 50);
@@ -292,6 +312,7 @@
     doctorBtn.layer.cornerRadius = 3.0f;
     doctorBtn.layer.borderWidth  = 1.0f;
     doctorBtn.layer.borderColor  = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:255.0/255.0].CGColor;
+    [doctorBtn addTarget:self action:@selector(didTouchGoToDoctorSignUp:) forControlEvents:UIControlEventTouchUpInside];
     
     gotoSignInBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     gotoSignInBtn.frame = CGRectMake(0, 0, 320, 55);
@@ -405,6 +426,15 @@
     [self swipeLeft];
 }
 
+-(void)didTouchGoToPatientSignUp:(id)sender
+{
+    [self performSegueWithIdentifier:@"StartToPatientSignUp" sender:self];
+}
+
+-(void)didTouchGoToDoctorSignUp:(id)sender
+{
+    [self performSegueWithIdentifier:@"StartToDoctorSignUp" sender:self];
+}
 
 -(void)tapHideKeyBoard
 {
